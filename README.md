@@ -12,6 +12,20 @@ This library is a port of [sysexits-rs][sysexits-rs-crate-url].
 ### Example
 
 ```zig
+const std = @import("std");
+
+const sysexits = @import("sysexits");
+
+pub fn main() u8 {
+    const bytes = [_]u8{ 0xf0, 0x9f, 0x92, 0x96 };
+    if (std.unicode.utf8ValidateSlice(&bytes)) {
+        std.debug.print("OK\n", .{});
+        return @enumToInt(sysexits.ExitCode.ok);
+    } else {
+        std.debug.print("Error: invalid UTF-8 sequence\n", .{});
+        return @enumToInt(sysexits.ExitCode.data_err);
+    }
+}
 ```
 
 ## Changelog
