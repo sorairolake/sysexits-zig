@@ -1,0 +1,55 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - '**'
+    tags-ignore:
+      - '**'
+  pull_request:
+  schedule:
+      - cron: '0 0 * * 0'
+
+jobs:
+  test:
+    name: Test
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        target:
+          - x86_64-unknown-linux-gnu
+          - x86_64-apple-darwin
+          - x86_64-pc-windows-msvc
+        include:
+          - target: x86_64-unknown-linux-gnu
+            os: ubuntu-22.04
+          - target: x86_64-apple-darwin
+            os: macos-12
+          - target: x86_64-pc-windows-msvc
+            os: windows-2022
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+    - name: Setup Zig environment
+      uses: goto-bus-stop/setup-zig@v2.0.2
+      with:
+        version: 0.10.1
+    - name: Build a project
+      run: zig build
+    - name: Build examples
+      run: zig build example
+    - name: Run tests
+      run: zig build test
+
+  fmt:
+    name: Format
+    runs-on: ubuntu-22.04
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+    - name: Setup Zig environment
+      uses: goto-bus-stop/setup-zig@v2.0.2
+      with:
+        version: 0.10.1
+    - name: Check code formatted
+      run: zig fmt --check .
