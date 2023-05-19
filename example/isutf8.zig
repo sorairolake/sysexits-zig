@@ -8,18 +8,26 @@ const std = @import("std");
 
 const sysexits = @import("sysexits");
 
-pub fn main() u8 {
+pub fn main() !u8 {
     const alloc = std.heap.page_allocator;
-    const args = std.process.argsAlloc(alloc) catch |err| {
-        std.debug.panic("{}\n", .{err});
-    };
+    const args = try std.process.argsAlloc(alloc);
     defer std.process.argsFree(alloc, args);
 
-    if (std.unicode.utf8ValidateSlice(args[1])) {
-        std.debug.print("OK\n", .{});
+    var input: []u8 = undefined;
+    if (args.len < 2) {
+        const stdin = std.io.getStdIn().reader();
+        input = (try stdin.readUntilDelimiterOrEofAlloc(alloc, '\n', std.math.maxInt(usize))).?;
+    } else {
+        input = args[1];
+    }
+
+    if (std.unicode.utf8ValidateSlice(input)) {
+        const stdout = std.io.getStdOut().writer();
+        try stdout.print("OK\n", .{});
         return @enumToInt(sysexits.ExitCode.ok);
     } else {
-        std.debug.print("Error: invalid UTF-8 sequence\n", .{});
+        const stderr = std.io.getStdErr().writer();
+        try stderr.print("Error: invalid UTF-8 sequence\n", .{});
         return @enumToInt(sysexits.ExitCode.data_err);
     }
 }
