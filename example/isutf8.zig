@@ -4,6 +4,9 @@
 // Copyright (C) 2023 Shun Sakai
 //
 
+//! An example of checking whether the input is valid UTF-8.
+//! The input is a file or the standard input.
+
 const std = @import("std");
 
 const sysexits = @import("sysexits");
