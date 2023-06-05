@@ -7,6 +7,7 @@
 //! The system exit code constants as defined by `<sysexits.h>`.
 
 const std = @import("std");
+
 const testing = std.testing;
 
 /// Represents the system exit code constants as defined by `<sysexits.h>`.

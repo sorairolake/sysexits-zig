@@ -31,9 +31,11 @@
 //! ```
 
 const std = @import("std");
-const testing = std.testing;
 
 const exit_code = @import("exit_code.zig");
+
+const testing = std.testing;
+
 pub const ExitCode = exit_code.ExitCode;
 
 test {
