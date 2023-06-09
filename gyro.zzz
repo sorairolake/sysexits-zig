@@ -1,0 +1,22 @@
+pkgs:
+  sysexits:
+    version: 0.1.1
+    root: src/main.zig
+    description: The system exit codes as defined by <sysexits.h>
+    license: Apache-2.0 OR MIT
+    source_url: https://github.com/sorairolake/sysexits-zig
+
+    tags:
+      exitcode
+      sysexits
+
+    files:
+      AUTHORS.adoc
+      build.zig
+      CHANGELOG.adoc
+      CONTRIBUTING.adoc
+      COPYRIGHT
+      LICENSE-APACHE
+      LICENSE-MIT
+      README.md
+      src/*.zig

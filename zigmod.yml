@@ -1,0 +1,6 @@
+id: wl467gx72vulea0zkwlxfxxeg799wo5gt3ktekpabogi0jrf
+name: sysexits
+main: src/main.zig
+license: Apache-2.0 OR MIT
+description: The system exit codes as defined by <sysexits.h>
+dependencies:
