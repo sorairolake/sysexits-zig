@@ -24,7 +24,7 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
     - name: Setup Zig environment
-      uses: goto-bus-stop/setup-zig@v2.0.2
+      uses: goto-bus-stop/setup-zig@v2.1.0
       with:
         version: 0.10.1
     - name: Build a project
@@ -41,7 +41,7 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
     - name: Setup Zig environment
-      uses: goto-bus-stop/setup-zig@v2.0.2
+      uses: goto-bus-stop/setup-zig@v2.1.0
       with:
         version: 0.10.1
     - name: Check code formatted
