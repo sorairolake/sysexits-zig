@@ -1,8 +1,6 @@
+// SPDX-FileCopyrightText: 2023 Shun Sakai
 //
 // SPDX-License-Identifier: Apache-2.0 OR MIT
-//
-// Copyright (C) 2023 Shun Sakai
-//
 
 //! An example of checking whether the input is valid UTF-8.
 //! The input is a file or the standard input.
