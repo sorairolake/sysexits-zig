@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2023 Shun Sakai
+#
+# SPDX-License-Identifier: Apache-2.0 OR MIT
+
 pkgs:
   sysexits:
     version: 0.1.1
@@ -15,8 +19,7 @@ pkgs:
       build.zig
       CHANGELOG.adoc
       CONTRIBUTING.adoc
-      COPYRIGHT
-      LICENSE-APACHE
-      LICENSE-MIT
+      COPYING
+      LICENSES/*
       README.md
       src/*.zig
