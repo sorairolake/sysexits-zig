@@ -1,11 +1,14 @@
+# SPDX-FileCopyrightText: 2023 Shun Sakai
+#
+# SPDX-License-Identifier: Apache-2.0 OR MIT
+
 name: CI
 
 on:
   push:
     branches:
-      - '**'
-    tags-ignore:
-      - '**'
+      - 'develop'
+      - 'master'
   pull_request:
   schedule:
       - cron: '0 0 * * 0'
@@ -24,7 +27,7 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
     - name: Setup Zig environment
-      uses: goto-bus-stop/setup-zig@v2.0.2
+      uses: goto-bus-stop/setup-zig@v2.1.1
       with:
         version: 0.10.1
     - name: Build a project
@@ -41,7 +44,7 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
     - name: Setup Zig environment
-      uses: goto-bus-stop/setup-zig@v2.0.2
+      uses: goto-bus-stop/setup-zig@v2.1.1
       with:
         version: 0.10.1
     - name: Check code formatted

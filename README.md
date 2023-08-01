@@ -1,3 +1,9 @@
+<!--
+SPDX-FileCopyrightText: 2023 Shun Sakai
+
+SPDX-License-Identifier: Apache-2.0 OR MIT
+-->
+
 # sysexits-zig
 
 [![CI][ci-badge]][ci-url]
@@ -19,12 +25,10 @@ const sysexits = @import("sysexits");
 pub fn main() !u8 {
     const bytes = [_]u8{ 0xf0, 0x9f, 0x92, 0x96 };
     if (std.unicode.utf8ValidateSlice(&bytes)) {
-        const stdout = std.io.getStdOut().writer();
-        try stdout.print("{s}\n", .{bytes});
+        try std.io.getStdOut().writer().print("{s}\n", .{bytes});
         return @enumToInt(sysexits.ExitCode.ok);
     } else {
-        const stderr = std.io.getStdErr().writer();
-        try stderr.print("Error: invalid UTF-8 sequence\n", .{});
+        try std.io.getStdErr().writer().print("Error: invalid UTF-8 sequence\n", .{});
         return @enumToInt(sysexits.ExitCode.data_err);
     }
 }
@@ -50,8 +54,7 @@ Copyright &copy; 2023 Shun Sakai (see [AUTHORS.adoc](AUTHORS.adoc))
 This library is distributed under the terms of either the _Apache License 2.0_
 or the _MIT License_.
 
-See [COPYRIGHT](COPYRIGHT), [LICENSE-APACHE](LICENSE-APACHE) and
-[LICENSE-MIT](LICENSE-MIT) for more details.
+See [COPYING](COPYING) for more details.
 
 [ci-badge]: https://img.shields.io/github/actions/workflow/status/sorairolake/sysexits-zig/CI.yaml?branch=develop&label=CI&logo=github&style=for-the-badge
 [ci-url]: https://github.com/sorairolake/sysexits-zig/actions?query=branch%3Adevelop+workflow%3ACI++
