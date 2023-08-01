@@ -4,7 +4,7 @@
 
 pkgs:
   sysexits:
-    version: 0.1.1
+    version: 0.1.2
     root: src/main.zig
     description: The system exit codes as defined by <sysexits.h>
     license: Apache-2.0 OR MIT

@@ -16,7 +16,7 @@ project adheres to https://semver.org/[Semantic Versioning].
 
 toc::[]
 
-== {compare-url}/v0.1.1\...HEAD[Unreleased]
+== {compare-url}/v0.1.1\...v0.1.2[0.1.2] - 2023-08-01
 
 === Changed
 
