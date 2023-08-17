@@ -36,8 +36,8 @@ pub fn main() !u8 {
 
 ## Zig version
 
-This library targets the latest release of Zig.
-This library is tested on v0.10.1 of Zig.
+This library targets the latest release of Zig. This library is tested on
+v0.10.1 of Zig.
 
 ## Changelog
 
