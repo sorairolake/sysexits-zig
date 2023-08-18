@@ -5,4 +5,5 @@
 = Examples
 
 link:isutf8.zig[]::
+
   An example that returns `sysexits.ExitCode`.
