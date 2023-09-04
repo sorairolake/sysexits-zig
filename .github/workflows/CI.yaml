@@ -25,7 +25,7 @@ jobs:
           - windows-2022
     steps:
     - name: Checkout code
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
     - name: Setup Zig environment
       uses: goto-bus-stop/setup-zig@v2.1.1
       with:
@@ -42,7 +42,7 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
     - name: Checkout code
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
     - name: Setup Zig environment
       uses: goto-bus-stop/setup-zig@v2.1.1
       with:
