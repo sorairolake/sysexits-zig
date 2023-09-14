@@ -92,27 +92,27 @@ pub const ExitCode = enum(u7) {
 
     /// Terminates the current process with the exit code defined by `ExitCode`.
     pub fn exit(self: Self) noreturn {
-        std.process.exit(@enumToInt(self));
+        std.process.exit(@intFromEnum(self));
     }
 };
 
 test "ExitCode to integer" {
-    try testing.expect(@enumToInt(ExitCode.ok) == 0);
-    try testing.expect(@enumToInt(ExitCode.usage) == 64);
-    try testing.expect(@enumToInt(ExitCode.data_err) == 65);
-    try testing.expect(@enumToInt(ExitCode.no_input) == 66);
-    try testing.expect(@enumToInt(ExitCode.no_user) == 67);
-    try testing.expect(@enumToInt(ExitCode.no_host) == 68);
-    try testing.expect(@enumToInt(ExitCode.unavailable) == 69);
-    try testing.expect(@enumToInt(ExitCode.software) == 70);
-    try testing.expect(@enumToInt(ExitCode.os_err) == 71);
-    try testing.expect(@enumToInt(ExitCode.os_file) == 72);
-    try testing.expect(@enumToInt(ExitCode.cant_creat) == 73);
-    try testing.expect(@enumToInt(ExitCode.io_err) == 74);
-    try testing.expect(@enumToInt(ExitCode.temp_fail) == 75);
-    try testing.expect(@enumToInt(ExitCode.protocol) == 76);
-    try testing.expect(@enumToInt(ExitCode.no_perm) == 77);
-    try testing.expect(@enumToInt(ExitCode.config) == 78);
+    try testing.expect(@intFromEnum(ExitCode.ok) == 0);
+    try testing.expect(@intFromEnum(ExitCode.usage) == 64);
+    try testing.expect(@intFromEnum(ExitCode.data_err) == 65);
+    try testing.expect(@intFromEnum(ExitCode.no_input) == 66);
+    try testing.expect(@intFromEnum(ExitCode.no_user) == 67);
+    try testing.expect(@intFromEnum(ExitCode.no_host) == 68);
+    try testing.expect(@intFromEnum(ExitCode.unavailable) == 69);
+    try testing.expect(@intFromEnum(ExitCode.software) == 70);
+    try testing.expect(@intFromEnum(ExitCode.os_err) == 71);
+    try testing.expect(@intFromEnum(ExitCode.os_file) == 72);
+    try testing.expect(@intFromEnum(ExitCode.cant_creat) == 73);
+    try testing.expect(@intFromEnum(ExitCode.io_err) == 74);
+    try testing.expect(@intFromEnum(ExitCode.temp_fail) == 75);
+    try testing.expect(@intFromEnum(ExitCode.protocol) == 76);
+    try testing.expect(@intFromEnum(ExitCode.no_perm) == 77);
+    try testing.expect(@intFromEnum(ExitCode.config) == 78);
 }
 
 test "isSuccess for successful termination" {

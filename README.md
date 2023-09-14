@@ -26,10 +26,10 @@ pub fn main() !u8 {
     const bytes = [_]u8{ 0xf0, 0x9f, 0x92, 0x96 };
     if (std.unicode.utf8ValidateSlice(&bytes)) {
         try std.io.getStdOut().writer().print("{s}\n", .{bytes});
-        return @enumToInt(sysexits.ExitCode.ok);
+        return @intFromEnum(sysexits.ExitCode.ok);
     } else {
         try std.io.getStdErr().writer().print("Error: invalid UTF-8 sequence\n", .{});
-        return @enumToInt(sysexits.ExitCode.data_err);
+        return @intFromEnum(sysexits.ExitCode.data_err);
     }
 }
 ```
@@ -37,7 +37,7 @@ pub fn main() !u8 {
 ## Zig version
 
 This library targets the latest release of Zig. This library is tested on
-v0.10.1 of Zig.
+v0.11.0 of Zig.
 
 ## Changelog
 
