@@ -2,8 +2,7 @@
 //
 // SPDX-License-Identifier: Apache-2.0 OR MIT
 
-= Examples
-
-link:isutf8.zig[]::
-
-  An example that returns `sysexits.ExitCode`.
+.{
+    .name = "sysexits",
+    .version = "0.2.0",
+}

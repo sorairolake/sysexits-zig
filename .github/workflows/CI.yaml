@@ -5,13 +5,13 @@
 name: CI
 
 on:
+  pull_request:
   push:
     branches:
-      - 'develop'
-      - 'master'
-  pull_request:
+      - "develop"
+      - "master"
   schedule:
-      - cron: '0 0 * * 0'
+    - cron: "0 0 * * 0"
 
 jobs:
   test:
@@ -24,28 +24,28 @@ jobs:
           - macos-12
           - windows-2022
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
-    - name: Setup Zig environment
-      uses: goto-bus-stop/setup-zig@v2.1.1
-      with:
-        version: 0.10.1
-    - name: Build a project
-      run: zig build
-    - name: Build examples
-      run: zig build example
-    - name: Run tests
-      run: zig build test
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Setup Zig environment
+        uses: goto-bus-stop/setup-zig@v2.1.1
+        with:
+          version: 0.11.0
+      - name: Build a project
+        run: zig build
+      - name: Build examples
+        run: zig build example
+      - name: Run tests
+        run: zig build test
 
   fmt:
     name: Format
     runs-on: ubuntu-22.04
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
-    - name: Setup Zig environment
-      uses: goto-bus-stop/setup-zig@v2.1.1
-      with:
-        version: 0.10.1
-    - name: Check code formatted
-      run: zig fmt --check .
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Setup Zig environment
+        uses: goto-bus-stop/setup-zig@v2.1.1
+        with:
+          version: 0.11.0
+      - name: Check code formatted
+        run: zig fmt --check .
