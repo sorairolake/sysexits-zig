@@ -9,7 +9,7 @@ SPDX-License-Identifier: Apache-2.0 OR MIT
 [![CI][ci-badge]][ci-url]
 
 **sysexits-zig** is a library that provides the system exit code constants as
-defined by [`<sysexits.h>`][sysexits-man-url].
+defined by [`<sysexits.h>`].
 
 This library is a port of [sysexits-rs][sysexits-rs-crate-url].
 
@@ -40,22 +40,29 @@ This library is compatible with Zig version 0.11.0.
 
 ## Changelog
 
-Please see [CHANGELOG.adoc](CHANGELOG.adoc).
+Please see [CHANGELOG.adoc].
 
 ## Contributing
 
-Please see [CONTRIBUTING.adoc](CONTRIBUTING.adoc).
+Please see [CONTRIBUTING.adoc].
 
 ## License
 
-Copyright &copy; 2023 Shun Sakai (see [AUTHORS.adoc](AUTHORS.adoc))
+Copyright &copy; 2023 Shun Sakai (see [AUTHORS.adoc])
 
 This library is distributed under the terms of either the _Apache License 2.0_
 or the _MIT License_.
 
-See [COPYING](COPYING) for more details.
+This project is compliant with version 3.0 of the [_REUSE Specification_]. See
+[COPYING] and copyright notices of individual files for more details on
+copyright and licensing information.
 
 [ci-badge]: https://img.shields.io/github/actions/workflow/status/sorairolake/sysexits-zig/CI.yaml?branch=develop&label=CI&logo=github&style=for-the-badge
 [ci-url]: https://github.com/sorairolake/sysexits-zig/actions?query=branch%3Adevelop+workflow%3ACI++
-[sysexits-man-url]: https://man.openbsd.org/sysexits
-[sysexits-rs-crate-url]: https://crates.io/crates/sysexits
+[`<sysexits.h>`]: https://man.openbsd.org/sysexits
+[sysexits-rs]: https://crates.io/crates/sysexits
+[CHANGELOG.adoc]: CHANGELOG.adoc
+[CONTRIBUTING.adoc]: CONTRIBUTING.adoc
+[AUTHORS.adoc]: AUTHORS.adoc
+[_REUSE Specification_]: https://reuse.software/spec/
+[COPYING]: COPYING
