@@ -26,7 +26,7 @@ pub fn build(b: *std.Build) void {
     inline for (example_names) |example_name| {
         const example = b.addExecutable(.{
             .name = example_name,
-            .root_source_file = .{ .path = "example/" ++ example_name ++ ".zig" },
+            .root_source_file = .{ .path = "examples/" ++ example_name ++ ".zig" },
             .target = target,
             .optimize = optimize,
         });
