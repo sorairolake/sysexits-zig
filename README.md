@@ -11,7 +11,7 @@ SPDX-License-Identifier: Apache-2.0 OR MIT
 **sysexits-zig** is a library that provides the system exit code constants as
 defined by [`<sysexits.h>`].
 
-This library is a port of [sysexits-rs][sysexits-rs-crate-url].
+This library is a port of [sysexits-rs].
 
 ## Usage
 
