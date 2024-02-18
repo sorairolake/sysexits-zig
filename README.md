@@ -57,7 +57,7 @@ This project is compliant with version 3.0 of the [_REUSE Specification_]. See
 copyright notices of individual files for more details on copyright and
 licensing information.
 
-[ci-badge]: https://img.shields.io/github/actions/workflow/status/sorairolake/sysexits-zig/CI.yaml?branch=develop&label=CI&logo=github&style=for-the-badge
+[ci-badge]: https://img.shields.io/github/actions/workflow/status/sorairolake/sysexits-zig/CI.yaml?branch=develop&style=for-the-badge&logo=github&label=CI
 [ci-url]: https://github.com/sorairolake/sysexits-zig/actions?query=branch%3Adevelop+workflow%3ACI++
 [`<sysexits.h>`]: https://man.openbsd.org/sysexits
 [sysexits-rs]: https://crates.io/crates/sysexits
