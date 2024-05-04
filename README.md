@@ -44,6 +44,14 @@ zig build doc
 
 The result is generated in `zig-out/docs`.
 
+If you want to preview this, run a HTTP server locally. For example:
+
+```sh
+python -m http.server -d zig-out/docs
+```
+
+Then open `http://localhost:8000/` in your browser.
+
 ## Zig version
 
 This library is compatible with Zig version 0.12.0.
