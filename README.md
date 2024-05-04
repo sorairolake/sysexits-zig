@@ -36,7 +36,7 @@ pub fn main() !u8 {
 
 ## Zig version
 
-This library is compatible with Zig version 0.11.0.
+This library is compatible with Zig version 0.12.0.
 
 ## Changelog
 
