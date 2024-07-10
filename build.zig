@@ -9,12 +9,12 @@ pub fn build(b: *std.Build) void {
     const optimize = b.standardOptimizeOption(.{});
 
     const mod = b.addModule("sysexits", .{
-        .root_source_file = .{ .path = "src/root.zig" },
+        .root_source_file = b.path("src/root.zig"),
     });
 
     const test_step = b.step("test", "Run library tests");
     const tests = b.addTest(.{
-        .root_source_file = .{ .path = "src/root.zig" },
+        .root_source_file = b.path("src/root.zig"),
         .target = target,
         .optimize = optimize,
     });
@@ -24,7 +24,7 @@ pub fn build(b: *std.Build) void {
     const doc_step = b.step("doc", "Build the documentation");
     const doc_obj = b.addObject(.{
         .name = "sysexits",
-        .root_source_file = .{ .path = "src/root.zig" },
+        .root_source_file = b.path("src/root.zig"),
         .target = target,
         .optimize = optimize,
     });
@@ -40,7 +40,7 @@ pub fn build(b: *std.Build) void {
     inline for (example_names) |example_name| {
         const example = b.addExecutable(.{
             .name = example_name,
-            .root_source_file = .{ .path = "examples/" ++ example_name ++ ".zig" },
+            .root_source_file = b.path("examples/" ++ example_name ++ ".zig"),
             .target = target,
             .optimize = optimize,
         });

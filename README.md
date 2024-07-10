@@ -54,7 +54,7 @@ Then open `http://localhost:8000/` in your browser.
 
 ## Zig version
 
-This library is compatible with Zig version 0.12.0.
+This library is compatible with Zig version 0.13.0.
 
 ## Changelog
 
