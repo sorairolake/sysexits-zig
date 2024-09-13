@@ -56,6 +56,16 @@ Then open `http://localhost:8000/` in your browser.
 
 This library is compatible with Zig version 0.13.0.
 
+## Source code
+
+The upstream repository is available at
+<https://github.com/sorairolake/sysexits-zig.git>.
+
+The source code is also available at:
+
+- <https://gitlab.com/sorairolake/sysexits-zig.git>
+- <https://codeberg.org/sorairolake/sysexits-zig.git>
+
 ## Changelog
 
 Please see [CHANGELOG.adoc].
