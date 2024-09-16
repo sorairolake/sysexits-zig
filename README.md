@@ -15,6 +15,19 @@ This library is a port of [sysexits-rs].
 
 ## Usage
 
+Add this package to your `build.zig.zon`:
+
+```sh
+zig fetch --save git+https://github.com/sorairolake/sysexits-zig.git
+```
+
+Add the following to your `build.zig`:
+
+```zig
+const sysexits = b.dependency("sysexits", .{});
+exe.root_module.addImport("sysexits", sysexits.module("sysexits"));
+```
+
 ### Example
 
 ```zig
