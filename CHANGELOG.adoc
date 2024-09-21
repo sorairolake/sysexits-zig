@@ -16,6 +16,10 @@ project adheres to https://semver.org/[Semantic Versioning].
 
 == {compare-url}/v0.2.7\...HEAD[Unreleased]
 
+=== Added
+
+* Add `ExitCode.base` and `ExitCode.max` constants ({pull-request-url}/7[#7])
+
 === Changed
 
 * Migrate to Zig version 0.13.0 ({pull-request-url}/5[#5])

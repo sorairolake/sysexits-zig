@@ -80,6 +80,12 @@ pub const ExitCode = enum(u7) {
 
     const Self = @This();
 
+    /// The base value for `ExitCode`.
+    pub const base = Self.usage;
+
+    /// The maximum value for `ExitCode`.
+    pub const max = Self.config;
+
     /// Returns `true` if this system exit code represents successful
     /// termination.
     pub fn isSuccess(self: Self) bool {
@@ -115,6 +121,14 @@ test "ExitCode to integer" {
     try testing.expect(@intFromEnum(ExitCode.protocol) == 76);
     try testing.expect(@intFromEnum(ExitCode.no_perm) == 77);
     try testing.expect(@intFromEnum(ExitCode.config) == 78);
+}
+
+test "base value" {
+    try testing.expect(ExitCode.base == ExitCode.usage);
+}
+
+test "maximum value" {
+    try testing.expect(ExitCode.max == ExitCode.config);
 }
 
 test "isSuccess for successful termination" {
