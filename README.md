@@ -15,6 +15,19 @@ This library is a port of [sysexits-rs].
 
 ## Usage
 
+Add this package to your `build.zig.zon`:
+
+```sh
+zig fetch --save git+https://github.com/sorairolake/sysexits-zig.git
+```
+
+Add the following to your `build.zig`:
+
+```zig
+const sysexits = b.dependency("sysexits", .{});
+exe.root_module.addImport("sysexits", sysexits.module("sysexits"));
+```
+
 ### Example
 
 ```zig
@@ -54,7 +67,17 @@ Then open `http://localhost:8000/` in your browser.
 
 ## Zig version
 
-This library is compatible with Zig version 0.12.0.
+This library is compatible with Zig version 0.13.0.
+
+## Source code
+
+The upstream repository is available at
+<https://github.com/sorairolake/sysexits-zig.git>.
+
+The source code is also available at:
+
+- <https://gitlab.com/sorairolake/sysexits-zig.git>
+- <https://codeberg.org/sorairolake/sysexits-zig.git>
 
 ## Changelog
 
@@ -71,7 +94,7 @@ Copyright &copy; 2023&ndash;2024 Shun Sakai (see [AUTHORS.adoc])
 This library is distributed under the terms of either the _Apache License 2.0_
 or the _MIT License_.
 
-This project is compliant with version 3.0 of the [_REUSE Specification_]. See
+This project is compliant with version 3.2 of the [_REUSE Specification_]. See
 copyright notices of individual files for more details on copyright and
 licensing information.
 
