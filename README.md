@@ -28,25 +28,6 @@ const sysexits = b.dependency("sysexits", .{});
 exe.root_module.addImport("sysexits", sysexits.module("sysexits"));
 ```
 
-### Example
-
-```zig
-const std = @import("std");
-
-const sysexits = @import("sysexits");
-
-pub fn main() !u8 {
-    const bytes = [_]u8{ 0xf0, 0x9f, 0x92, 0x96 };
-    if (std.unicode.utf8ValidateSlice(&bytes)) {
-        try std.io.getStdOut().writer().print("{s}\n", .{bytes});
-        return @intFromEnum(sysexits.ExitCode.ok);
-    } else {
-        try std.io.getStdErr().writer().print("Error: invalid UTF-8 sequence\n", .{});
-        return @intFromEnum(sysexits.ExitCode.data_err);
-    }
-}
-```
-
 ### Documentation
 
 To build the documentation:
