@@ -80,38 +80,11 @@ pub const ExitCode = enum(u7) {
 
     const Self = @This();
 
-    test "ExitCode to integer" {
-        try testing.expect(@intFromEnum(Self.ok) == 0);
-        try testing.expect(@intFromEnum(Self.usage) == 64);
-        try testing.expect(@intFromEnum(Self.data_err) == 65);
-        try testing.expect(@intFromEnum(Self.no_input) == 66);
-        try testing.expect(@intFromEnum(Self.no_user) == 67);
-        try testing.expect(@intFromEnum(Self.no_host) == 68);
-        try testing.expect(@intFromEnum(Self.unavailable) == 69);
-        try testing.expect(@intFromEnum(Self.software) == 70);
-        try testing.expect(@intFromEnum(Self.os_err) == 71);
-        try testing.expect(@intFromEnum(Self.os_file) == 72);
-        try testing.expect(@intFromEnum(Self.cant_creat) == 73);
-        try testing.expect(@intFromEnum(Self.io_err) == 74);
-        try testing.expect(@intFromEnum(Self.temp_fail) == 75);
-        try testing.expect(@intFromEnum(Self.protocol) == 76);
-        try testing.expect(@intFromEnum(Self.no_perm) == 77);
-        try testing.expect(@intFromEnum(Self.config) == 78);
-    }
-
     /// The base value for `ExitCode`.
     pub const base = Self.usage;
 
-    test "base value" {
-        try testing.expect(Self.base == Self.usage);
-    }
-
     /// The maximum value for `ExitCode`.
     pub const max = Self.config;
-
-    test "maximum value" {
-        try testing.expect(Self.max == Self.config);
-    }
 
     /// Returns `true` if this system exit code represents successful
     /// termination.
@@ -122,28 +95,6 @@ pub const ExitCode = enum(u7) {
     test isSuccess {
         try testing.expect(ExitCode.ok.isSuccess());
         try testing.expect(!ExitCode.usage.isSuccess());
-    }
-
-    test "isSuccess for successful termination" {
-        try testing.expect(Self.ok.isSuccess());
-    }
-
-    test "isSuccess for unsuccessful termination" {
-        try testing.expect(!Self.usage.isSuccess());
-        try testing.expect(!Self.data_err.isSuccess());
-        try testing.expect(!Self.no_input.isSuccess());
-        try testing.expect(!Self.no_user.isSuccess());
-        try testing.expect(!Self.no_host.isSuccess());
-        try testing.expect(!Self.unavailable.isSuccess());
-        try testing.expect(!Self.software.isSuccess());
-        try testing.expect(!Self.os_err.isSuccess());
-        try testing.expect(!Self.os_file.isSuccess());
-        try testing.expect(!Self.cant_creat.isSuccess());
-        try testing.expect(!Self.io_err.isSuccess());
-        try testing.expect(!Self.temp_fail.isSuccess());
-        try testing.expect(!Self.protocol.isSuccess());
-        try testing.expect(!Self.no_perm.isSuccess());
-        try testing.expect(!Self.config.isSuccess());
     }
 
     /// Returns `true` if this system exit code represents unsuccessful
@@ -157,30 +108,79 @@ pub const ExitCode = enum(u7) {
         try testing.expect(ExitCode.usage.isFailure());
     }
 
-    test "isFailure for successful termination" {
-        try testing.expect(!Self.ok.isFailure());
-    }
-
-    test "isFailure for unsuccessful termination" {
-        try testing.expect(Self.usage.isFailure());
-        try testing.expect(Self.data_err.isFailure());
-        try testing.expect(Self.no_input.isFailure());
-        try testing.expect(Self.no_user.isFailure());
-        try testing.expect(Self.no_host.isFailure());
-        try testing.expect(Self.unavailable.isFailure());
-        try testing.expect(Self.software.isFailure());
-        try testing.expect(Self.os_err.isFailure());
-        try testing.expect(Self.os_file.isFailure());
-        try testing.expect(Self.cant_creat.isFailure());
-        try testing.expect(Self.io_err.isFailure());
-        try testing.expect(Self.temp_fail.isFailure());
-        try testing.expect(Self.protocol.isFailure());
-        try testing.expect(Self.no_perm.isFailure());
-        try testing.expect(Self.config.isFailure());
-    }
-
     /// Terminates the current process with the exit code defined by `ExitCode`.
     pub fn exit(self: Self) noreturn {
         std.process.exit(@intFromEnum(self));
     }
 };
+
+test "ExitCode to integer" {
+    try testing.expect(@intFromEnum(ExitCode.ok) == 0);
+    try testing.expect(@intFromEnum(ExitCode.usage) == 64);
+    try testing.expect(@intFromEnum(ExitCode.data_err) == 65);
+    try testing.expect(@intFromEnum(ExitCode.no_input) == 66);
+    try testing.expect(@intFromEnum(ExitCode.no_user) == 67);
+    try testing.expect(@intFromEnum(ExitCode.no_host) == 68);
+    try testing.expect(@intFromEnum(ExitCode.unavailable) == 69);
+    try testing.expect(@intFromEnum(ExitCode.software) == 70);
+    try testing.expect(@intFromEnum(ExitCode.os_err) == 71);
+    try testing.expect(@intFromEnum(ExitCode.os_file) == 72);
+    try testing.expect(@intFromEnum(ExitCode.cant_creat) == 73);
+    try testing.expect(@intFromEnum(ExitCode.io_err) == 74);
+    try testing.expect(@intFromEnum(ExitCode.temp_fail) == 75);
+    try testing.expect(@intFromEnum(ExitCode.protocol) == 76);
+    try testing.expect(@intFromEnum(ExitCode.no_perm) == 77);
+    try testing.expect(@intFromEnum(ExitCode.config) == 78);
+}
+
+test "base value" {
+    try testing.expect(ExitCode.base == ExitCode.usage);
+}
+
+test "maximum value" {
+    try testing.expect(ExitCode.max == ExitCode.config);
+}
+
+test "isSuccess for successful termination" {
+    try testing.expect(ExitCode.ok.isSuccess());
+}
+
+test "isSuccess for unsuccessful termination" {
+    try testing.expect(!ExitCode.usage.isSuccess());
+    try testing.expect(!ExitCode.data_err.isSuccess());
+    try testing.expect(!ExitCode.no_input.isSuccess());
+    try testing.expect(!ExitCode.no_user.isSuccess());
+    try testing.expect(!ExitCode.no_host.isSuccess());
+    try testing.expect(!ExitCode.unavailable.isSuccess());
+    try testing.expect(!ExitCode.software.isSuccess());
+    try testing.expect(!ExitCode.os_err.isSuccess());
+    try testing.expect(!ExitCode.os_file.isSuccess());
+    try testing.expect(!ExitCode.cant_creat.isSuccess());
+    try testing.expect(!ExitCode.io_err.isSuccess());
+    try testing.expect(!ExitCode.temp_fail.isSuccess());
+    try testing.expect(!ExitCode.protocol.isSuccess());
+    try testing.expect(!ExitCode.no_perm.isSuccess());
+    try testing.expect(!ExitCode.config.isSuccess());
+}
+
+test "isFailure for successful termination" {
+    try testing.expect(!ExitCode.ok.isFailure());
+}
+
+test "isFailure for unsuccessful termination" {
+    try testing.expect(ExitCode.usage.isFailure());
+    try testing.expect(ExitCode.data_err.isFailure());
+    try testing.expect(ExitCode.no_input.isFailure());
+    try testing.expect(ExitCode.no_user.isFailure());
+    try testing.expect(ExitCode.no_host.isFailure());
+    try testing.expect(ExitCode.unavailable.isFailure());
+    try testing.expect(ExitCode.software.isFailure());
+    try testing.expect(ExitCode.os_err.isFailure());
+    try testing.expect(ExitCode.os_file.isFailure());
+    try testing.expect(ExitCode.cant_creat.isFailure());
+    try testing.expect(ExitCode.io_err.isFailure());
+    try testing.expect(ExitCode.temp_fail.isFailure());
+    try testing.expect(ExitCode.protocol.isFailure());
+    try testing.expect(ExitCode.no_perm.isFailure());
+    try testing.expect(ExitCode.config.isFailure());
+}
