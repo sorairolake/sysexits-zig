@@ -115,30 +115,30 @@ pub const ExitCode = enum(u7) {
 };
 
 test "ExitCode to integer" {
-    try testing.expectEqual(@intFromEnum(ExitCode.ok), 0);
-    try testing.expectEqual(@intFromEnum(ExitCode.usage), 64);
-    try testing.expectEqual(@intFromEnum(ExitCode.data_err), 65);
-    try testing.expectEqual(@intFromEnum(ExitCode.no_input), 66);
-    try testing.expectEqual(@intFromEnum(ExitCode.no_user), 67);
-    try testing.expectEqual(@intFromEnum(ExitCode.no_host), 68);
-    try testing.expectEqual(@intFromEnum(ExitCode.unavailable), 69);
-    try testing.expectEqual(@intFromEnum(ExitCode.software), 70);
-    try testing.expectEqual(@intFromEnum(ExitCode.os_err), 71);
-    try testing.expectEqual(@intFromEnum(ExitCode.os_file), 72);
-    try testing.expectEqual(@intFromEnum(ExitCode.cant_creat), 73);
-    try testing.expectEqual(@intFromEnum(ExitCode.io_err), 74);
-    try testing.expectEqual(@intFromEnum(ExitCode.temp_fail), 75);
-    try testing.expectEqual(@intFromEnum(ExitCode.protocol), 76);
-    try testing.expectEqual(@intFromEnum(ExitCode.no_perm), 77);
-    try testing.expectEqual(@intFromEnum(ExitCode.config), 78);
+    try testing.expectEqual(0, @intFromEnum(ExitCode.ok));
+    try testing.expectEqual(64, @intFromEnum(ExitCode.usage));
+    try testing.expectEqual(65, @intFromEnum(ExitCode.data_err));
+    try testing.expectEqual(66, @intFromEnum(ExitCode.no_input));
+    try testing.expectEqual(67, @intFromEnum(ExitCode.no_user));
+    try testing.expectEqual(68, @intFromEnum(ExitCode.no_host));
+    try testing.expectEqual(69, @intFromEnum(ExitCode.unavailable));
+    try testing.expectEqual(70, @intFromEnum(ExitCode.software));
+    try testing.expectEqual(71, @intFromEnum(ExitCode.os_err));
+    try testing.expectEqual(72, @intFromEnum(ExitCode.os_file));
+    try testing.expectEqual(73, @intFromEnum(ExitCode.cant_creat));
+    try testing.expectEqual(74, @intFromEnum(ExitCode.io_err));
+    try testing.expectEqual(75, @intFromEnum(ExitCode.temp_fail));
+    try testing.expectEqual(76, @intFromEnum(ExitCode.protocol));
+    try testing.expectEqual(77, @intFromEnum(ExitCode.no_perm));
+    try testing.expectEqual(78, @intFromEnum(ExitCode.config));
 }
 
 test "base value" {
-    try testing.expectEqual(ExitCode.base, ExitCode.usage);
+    try testing.expectEqual(ExitCode.usage, ExitCode.base);
 }
 
 test "maximum value" {
-    try testing.expectEqual(ExitCode.max, ExitCode.config);
+    try testing.expectEqual(ExitCode.config, ExitCode.max);
 }
 
 test "isSuccess for successful termination" {
