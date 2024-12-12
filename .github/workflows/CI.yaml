@@ -38,11 +38,11 @@ jobs:
         with:
           version: 0.13.0
       - name: Build a project
-        run: zig build
+        run: zig build --summary all
       - name: Build examples
-        run: zig build example
+        run: zig build example --summary all
       - name: Run tests
-        run: zig build test
+        run: zig build test --summary all
 
   fmt:
     name: Format
