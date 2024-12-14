@@ -8,9 +8,7 @@ pub fn build(b: *std.Build) void {
     const target = b.standardTargetOptions(.{});
     const optimize = b.standardOptimizeOption(.{});
 
-    const mod = b.addModule("sysexits", .{
-        .root_source_file = b.path("src/root.zig"),
-    });
+    const mod = b.addModule("sysexits", .{ .root_source_file = b.path("src/root.zig") });
 
     const test_step = b.step("test", "Run library tests");
     const tests = b.addTest(.{

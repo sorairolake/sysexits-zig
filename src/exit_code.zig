@@ -2,15 +2,18 @@
 //
 // SPDX-License-Identifier: Apache-2.0 OR MIT
 
-//! The system exit code constants as defined by
-//! [`<sysexits.h>`](https://man.openbsd.org/sysexits).
+//! The system exit code constants as defined by [`<sysexits.h>`].
+//!
+//! [`<sysexits.h>`]: https://man.openbsd.org/sysexits
 
 const std = @import("std");
 
 const testing = std.testing;
 
 /// This type represents the system exit code constants as defined by
-/// [`<sysexits.h>`](https://man.openbsd.org/sysexits).
+/// [`<sysexits.h>`].
+///
+/// [`<sysexits.h>`]: https://man.openbsd.org/sysexits
 pub const ExitCode = enum(u7) {
     /// The successful exit.
     ok,
@@ -47,8 +50,10 @@ pub const ExitCode = enum(u7) {
 
     /// An operating system error has been detected. This is intended to be
     /// used for such things as "cannot fork", or "cannot create pipe". It
-    /// includes things like [`getuid(2)`](https://man.openbsd.org/getuid.2)
-    /// returning a user that does not exist in the passwd file.
+    /// includes things like [`getuid(2)`] returning a user that does not exist
+    /// in the passwd file.
+    ///
+    /// [`getuid(2)`]: https://man.openbsd.org/getuid.2
     os_err,
 
     /// Some system file (e.g., `/etc/passwd`, `/var/run/utmp`) does not exist,
