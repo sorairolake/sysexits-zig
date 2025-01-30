@@ -7,14 +7,10 @@
 //!
 //! [`<sysexits.h>`]: https://man.openbsd.org/sysexits
 
-const exit_code = @import("exit_code.zig");
-
-pub const ExitCode = exit_code.ExitCode;
+pub const ExitCode = @import("exit_code.zig").ExitCode;
 
 test {
-    const std = @import("std");
-
-    const testing = std.testing;
+    const testing = @import("std").testing;
 
     testing.refAllDeclsRecursive(@This());
 }

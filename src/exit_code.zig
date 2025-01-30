@@ -8,6 +8,7 @@
 
 const std = @import("std");
 
+const process = std.process;
 const testing = std.testing;
 
 /// This type represents the system exit code constants as defined by
@@ -115,7 +116,7 @@ pub const ExitCode = enum(u7) {
 
     /// Terminates the current process with the exit code defined by `ExitCode`.
     pub fn exit(self: Self) noreturn {
-        std.process.exit(@intFromEnum(self));
+        process.exit(@intFromEnum(self));
     }
 };
 
