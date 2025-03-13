@@ -3,10 +3,9 @@
 // SPDX-License-Identifier: Apache-2.0 OR MIT
 
 .{
-    .name = "sysexits",
+    .name = .sysexits,
     .version = "0.2.8",
-
-    .minimum_zig_version = "0.13.0",
-
+    .fingerprint = 0x89bbbf1884266f84,
+    .minimum_zig_version = "0.14.0",
     .paths = .{ "build.zig", "build.zig.zon", "LICENSES", "README.md", "src" },
 }
