@@ -5,14 +5,10 @@
 //! The `sysexits` package provides the system exit code constants as defined
 //! by [`<sysexits.h>`](https://man.openbsd.org/sysexits).
 
-const std = @import("std");
-
-const exit_code = @import("exit_code.zig");
-
-const testing = std.testing;
-
-pub const ExitCode = exit_code.ExitCode;
+pub const ExitCode = @import("exit_code.zig").ExitCode;
 
 test {
+    const testing = @import("std").testing;
+
     testing.refAllDeclsRecursive(@This());
 }
