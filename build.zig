@@ -8,7 +8,7 @@ pub fn build(b: *std.Build) void {
     const target = b.standardTargetOptions(.{});
     const optimize = b.standardOptimizeOption(.{});
 
-    const lib_mod = b.addModule("sysexits", .{ .root_source_file = b.path("src/root.zig") });
+    const sysexits_mod = b.addModule("sysexits", .{ .root_source_file = b.path("src/root.zig") });
 
     const test_step = b.step("test", "Run the tests");
     const tests = b.addTest(.{
@@ -42,7 +42,7 @@ pub fn build(b: *std.Build) void {
             .target = target,
             .optimize = optimize,
         });
-        example.root_module.addImport("sysexits", lib_mod);
+        example.root_module.addImport("sysexits", sysexits_mod);
         const install_example = b.addInstallArtifact(example, .{});
         example_step.dependOn(&example.step);
         example_step.dependOn(&install_example.step);
