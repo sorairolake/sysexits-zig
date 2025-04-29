@@ -30,21 +30,7 @@ exe.root_module.addImport("sysexits", sysexits.module("sysexits"));
 
 ### Documentation
 
-To build the documentation:
-
-```sh
-zig build doc
-```
-
-The result is generated in `zig-out/doc/sysexits`.
-
-If you want to preview this, run a HTTP server locally. For example:
-
-```sh
-python -m http.server -d zig-out/doc/sysexits
-```
-
-Then open `http://localhost:8000/` in your browser.
+See the [documentation][docs-url] for more details.
 
 ## Zig version
 
@@ -86,6 +72,7 @@ licensing information.
 [ci-url]: https://github.com/sorairolake/sysexits-zig/actions?query=branch%3Adevelop+workflow%3ACI++
 [`<sysexits.h>`]: https://man.openbsd.org/sysexits
 [sysexits-rs]: https://crates.io/crates/sysexits
+[docs-url]: https://sorairolake.github.io/sysexits-zig/
 [CHANGELOG.adoc]: CHANGELOG.adoc
 [CONTRIBUTING.adoc]: CONTRIBUTING.adoc
 [AUTHORS.adoc]: AUTHORS.adoc
