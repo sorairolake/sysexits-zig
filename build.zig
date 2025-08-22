@@ -12,9 +12,11 @@ pub fn build(b: *std.Build) void {
 
     const test_step = b.step("test", "Run the tests");
     const tests = b.addTest(.{
-        .root_source_file = b.path("src/root.zig"),
-        .target = target,
-        .optimize = optimize,
+        .root_module = b.createModule(.{
+            .root_source_file = b.path("src/root.zig"),
+            .target = target,
+            .optimize = optimize,
+        }),
     });
     const run_tests = b.addRunArtifact(tests);
     test_step.dependOn(&run_tests.step);
@@ -22,9 +24,11 @@ pub fn build(b: *std.Build) void {
     const doc_step = b.step("doc", "Build the package documentation");
     const doc_obj = b.addObject(.{
         .name = "sysexits",
-        .root_source_file = b.path("src/root.zig"),
-        .target = target,
-        .optimize = optimize,
+        .root_module = b.createModule(.{
+            .root_source_file = b.path("src/root.zig"),
+            .target = target,
+            .optimize = optimize,
+        }),
     });
     const install_doc = b.addInstallDirectory(.{
         .source_dir = doc_obj.getEmittedDocs(),
@@ -38,9 +42,11 @@ pub fn build(b: *std.Build) void {
     inline for (example_names) |example_name| {
         const example = b.addExecutable(.{
             .name = example_name,
-            .root_source_file = b.path("examples/" ++ example_name ++ ".zig"),
-            .target = target,
-            .optimize = optimize,
+            .root_module = b.createModule(.{
+                .root_source_file = b.path("examples/" ++ example_name ++ ".zig"),
+                .target = target,
+                .optimize = optimize,
+            }),
         });
         example.root_module.addImport("sysexits", sysexits_mod);
         const install_example = b.addInstallArtifact(example, .{});
