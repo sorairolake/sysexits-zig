@@ -94,8 +94,8 @@ pub const ExitCode = enum(u7) {
     }
 
     test isSuccess {
-        try testing.expect(ExitCode.ok.isSuccess());
-        try testing.expect(!ExitCode.usage.isSuccess());
+        try testing.expectEqual(true, ExitCode.ok.isSuccess());
+        try testing.expectEqual(false, ExitCode.usage.isSuccess());
     }
 
     /// Returns `true` if this system exit code represents unsuccessful
@@ -105,8 +105,8 @@ pub const ExitCode = enum(u7) {
     }
 
     test isFailure {
-        try testing.expect(!ExitCode.ok.isFailure());
-        try testing.expect(ExitCode.usage.isFailure());
+        try testing.expectEqual(false, ExitCode.ok.isFailure());
+        try testing.expectEqual(true, ExitCode.usage.isFailure());
     }
 
     /// Terminates the current process with the exit code defined by `ExitCode`.

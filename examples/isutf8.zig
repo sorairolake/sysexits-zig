@@ -18,16 +18,16 @@ pub fn main() !u8 {
     defer std.process.argsFree(allocator, args);
 
     const input = if (args.len < 2)
-        (try std.io.getStdIn().reader().readUntilDelimiterOrEofAlloc(allocator, '\n', std.math.maxInt(usize))).?
+        (try std.fs.File.stdin().deprecatedReader().readUntilDelimiterOrEofAlloc(allocator, '\n', std.math.maxInt(usize))).?
     else
         try std.fs.cwd().readFileAlloc(allocator, args[1], std.math.maxInt(usize));
     defer allocator.free(input);
 
     if (std.unicode.utf8ValidateSlice(input)) {
-        try std.io.getStdOut().writer().print("OK\n", .{});
+        try std.fs.File.stdout().writeAll("OK\n");
         return @intFromEnum(sysexits.ExitCode.ok);
     } else {
-        try std.io.getStdErr().writer().print("Error: invalid UTF-8 sequence\n", .{});
+        try std.fs.File.stderr().writeAll("Error: invalid UTF-8 sequence\n");
         return @intFromEnum(sysexits.ExitCode.data_err);
     }
 }
