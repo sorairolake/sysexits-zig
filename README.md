@@ -32,6 +32,10 @@ exe.root_module.addImport("sysexits", sysexits.module("sysexits"));
 
 See the [documentation][docs-url] for more details.
 
+## Examples
+
+Please see the [examples] directory for examples of using this library.
+
 ## Zig version
 
 This library is compatible with Zig version 0.15.1.
@@ -69,6 +73,7 @@ licensing information.
 [`<sysexits.h>`]: https://man.openbsd.org/sysexits
 [sysexits-rs]: https://crates.io/crates/sysexits
 [docs-url]: https://sorairolake.github.io/sysexits-zig/
+[examples]: examples
 [CHANGELOG.adoc]: CHANGELOG.adoc
 [CONTRIBUTING.adoc]: CONTRIBUTING.adoc
 [AUTHORS.adoc]: AUTHORS.adoc
