@@ -10,5 +10,5 @@ pub const ExitCode = @import("exit_code.zig").ExitCode;
 test {
     const testing = @import("std").testing;
 
-    testing.refAllDeclsRecursive(@This());
+    testing.refAllDecls(@This());
 }

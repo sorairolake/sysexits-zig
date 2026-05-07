@@ -8,7 +8,7 @@ pub fn build(b: *std.Build) void {
     const target = b.standardTargetOptions(.{});
     const optimize = b.standardOptimizeOption(.{});
 
-    const sysexits_mod = b.addModule("sysexits", .{ .root_source_file = b.path("src/root.zig") });
+    _ = b.addModule("sysexits", .{ .root_source_file = b.path("src/root.zig") });
 
     const test_step = b.step("test", "Run the tests");
     const tests = b.addTest(.{
@@ -36,21 +36,4 @@ pub fn build(b: *std.Build) void {
         .install_subdir = "doc/sysexits",
     });
     doc_step.dependOn(&install_doc.step);
-
-    const example_step = b.step("example", "Build examples");
-    const example_names = [_][]const u8{"isutf8"};
-    inline for (example_names) |example_name| {
-        const example = b.addExecutable(.{
-            .name = example_name,
-            .root_module = b.createModule(.{
-                .root_source_file = b.path("examples/" ++ example_name ++ ".zig"),
-                .target = target,
-                .optimize = optimize,
-            }),
-        });
-        example.root_module.addImport("sysexits", sysexits_mod);
-        const install_example = b.addInstallArtifact(example, .{});
-        example_step.dependOn(&example.step);
-        example_step.dependOn(&install_example.step);
-    }
 }
