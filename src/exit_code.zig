@@ -82,9 +82,13 @@ pub const ExitCode = enum(u7) {
     const Self = @This();
 
     /// The base value for `ExitCode`.
+    ///
+    /// See [`sysexits.h(3head)`](https://man7.org/linux/man-pages/man3/sysexits.h.3head.html) for details.
     pub const base = Self.usage;
 
     /// The maximum value for `ExitCode`.
+    ///
+    /// See [`sysexits.h(3head)`](https://man7.org/linux/man-pages/man3/sysexits.h.3head.html) for details.
     pub const max = Self.config;
 
     /// Returns `true` if this system exit code represents successful
