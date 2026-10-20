@@ -119,27 +119,27 @@ pub const ExitCode = enum(u7) {
 
     /// Terminates the current process with the exit code defined by `ExitCode`.
     pub fn exit(self: Self) noreturn {
-        process.exit(@intFromEnum(self));
+        process.exit(@backingInt(self));
     }
 };
 
 test "ExitCode to integer" {
-    try testing.expectEqual(0, @intFromEnum(ExitCode.ok));
-    try testing.expectEqual(64, @intFromEnum(ExitCode.usage));
-    try testing.expectEqual(65, @intFromEnum(ExitCode.data_err));
-    try testing.expectEqual(66, @intFromEnum(ExitCode.no_input));
-    try testing.expectEqual(67, @intFromEnum(ExitCode.no_user));
-    try testing.expectEqual(68, @intFromEnum(ExitCode.no_host));
-    try testing.expectEqual(69, @intFromEnum(ExitCode.unavailable));
-    try testing.expectEqual(70, @intFromEnum(ExitCode.software));
-    try testing.expectEqual(71, @intFromEnum(ExitCode.os_err));
-    try testing.expectEqual(72, @intFromEnum(ExitCode.os_file));
-    try testing.expectEqual(73, @intFromEnum(ExitCode.cant_creat));
-    try testing.expectEqual(74, @intFromEnum(ExitCode.io_err));
-    try testing.expectEqual(75, @intFromEnum(ExitCode.temp_fail));
-    try testing.expectEqual(76, @intFromEnum(ExitCode.protocol));
-    try testing.expectEqual(77, @intFromEnum(ExitCode.no_perm));
-    try testing.expectEqual(78, @intFromEnum(ExitCode.config));
+    try testing.expectEqual(0, @backingInt(ExitCode.ok));
+    try testing.expectEqual(64, @backingInt(ExitCode.usage));
+    try testing.expectEqual(65, @backingInt(ExitCode.data_err));
+    try testing.expectEqual(66, @backingInt(ExitCode.no_input));
+    try testing.expectEqual(67, @backingInt(ExitCode.no_user));
+    try testing.expectEqual(68, @backingInt(ExitCode.no_host));
+    try testing.expectEqual(69, @backingInt(ExitCode.unavailable));
+    try testing.expectEqual(70, @backingInt(ExitCode.software));
+    try testing.expectEqual(71, @backingInt(ExitCode.os_err));
+    try testing.expectEqual(72, @backingInt(ExitCode.os_file));
+    try testing.expectEqual(73, @backingInt(ExitCode.cant_creat));
+    try testing.expectEqual(74, @backingInt(ExitCode.io_err));
+    try testing.expectEqual(75, @backingInt(ExitCode.temp_fail));
+    try testing.expectEqual(76, @backingInt(ExitCode.protocol));
+    try testing.expectEqual(77, @backingInt(ExitCode.no_perm));
+    try testing.expectEqual(78, @backingInt(ExitCode.config));
 }
 
 test "base value" {
