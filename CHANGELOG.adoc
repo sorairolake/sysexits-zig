@@ -18,7 +18,7 @@ project adheres to https://semver.org/[Semantic Versioning].
 
 === Changed
 
-* Migrate to Zig version 0.16.0 ({pull-request-url}/63[#63])
+* Migrate to Zig version 0.17.0 ({pull-request-url}/107[#107])
 
 == {compare-url}/v0.2.9\...v0.2.10[0.2.10] - 2025-08-22
 
